@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared/shared.module';
 
 import { DataVRoutingModule, routedComponents } from './data-v-routing.module';
-import { LayoutModule } from 'app/theme/layout/default/layout.module';
+import { LayoutModule } from '@theme/layout/default/layout.module';
 
 @NgModule({
     imports: [SharedModule, LayoutModule, DataVRoutingModule],

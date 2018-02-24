@@ -12,12 +12,12 @@ import { NgZorroAntdExtraModule } from 'ng-zorro-antd-extra';
 import { CountdownModule } from 'ngx-countdown';
 import { ModalService } from '@core/utils/modal.service';
 
-import { BaseComponent } from 'app/theme/parent/base.component';
-import { ParentIndexComponent } from 'app/pages/parent/parent.index.component';
-import { ParentEditComponent } from 'app/pages/parent/parent.edit.component';
-import { ParentViewComponent } from 'app/pages/parent/parent.view.component';
+import { BaseComponent } from '@theme/parent/base.component';
+import { ParentIndexComponent } from '@routes/parent/parent.index.component';
+import { ParentEditComponent } from '@routes/parent/parent.edit.component';
+import { ParentViewComponent } from '@routes/parent/parent.view.component';
 
-import { JsTreeDirective } from 'app/theme/directives/tree.directives';
+import { JsTreeDirective } from '@theme/directives/tree.directives';
 
 const THIRDMODULES = [CountdownModule];
 // endregion

@@ -17,15 +17,13 @@
     ],
     "baseUrl": "src/",
     "paths": {
-        "@shared": [ "app/shared" ],
         "@shared/*": [ "app/shared/*" ],
-        "@core": [ "app/core/" ],
         "@core/*": [ "app/core/*" ],
-        "@helpers": [ "app/helpers"],
+        "@helpers": [ "app/helpers/"],
         "@helpers/*": [ "app/helpers/*"],
-        "@testing": [ "testing/" ],
+        "@routes/*": [ "app/routes/*" ],
+        "@theme/*": [ "app/theme/*" ],
         "@testing/*": [ "testing/*" ],
-        "@env": [ "environments/" ],
         "@env/*": [ "environments/*" ],
         "@delon/*": [ "./delon/*" ]
     }

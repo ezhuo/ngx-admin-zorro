@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SysComponent } from './sys.component';
 import { SysAccountEditComponent } from './account/edit/edit.component';
-import { SizerComponent } from 'app/pages/sys/sizer/sizer.component';
+import { SizerComponent } from '@routes/sys/sizer/sizer.component';
 
 export const entryComponents = [SysAccountEditComponent];
 export const routedComponents = [SysComponent, SysAccountComponent, SizerComponent];

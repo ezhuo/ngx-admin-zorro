@@ -1,6 +1,6 @@
 import { Component, OnInit, Injector } from '@angular/core';
 import { SysAccountEditComponent } from './edit/edit.component';
-import { ParentIndexComponent } from 'app/pages/parent/parent.index.component';
+import { ParentIndexComponent } from '@routes/parent/parent.index.component';
 
 @Component({
   selector: 'sys-account',

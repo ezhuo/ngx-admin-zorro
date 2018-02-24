@@ -1,5 +1,5 @@
 import { Component, OnInit, Injector } from '@angular/core';
-import { ParentEditComponent } from 'app/pages/parent/parent.edit.component';
+import { ParentEditComponent } from '@routes/parent/parent.edit.component';
 import { NzModalSubject, NzMessageService } from 'ng-zorro-antd';
 
 @Component({

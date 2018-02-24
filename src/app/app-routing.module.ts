@@ -7,13 +7,13 @@ const routes: Routes = [
   {
     path: 'app',
     canLoad: [AuthGuard],
-    loadChildren: './pages/pages.module#PagesModule',
+    loadChildren: './routes/routes.module#RoutesModule',
     data: { app: true }
   },
   // 全屏布局
   {
     path: 'data-v',
-    loadChildren: './pages/data-v/data-v.module#DataVModule'
+    loadChildren: './routes/data-v/data-v.module#DataVModule'
   },
   // passport
   {

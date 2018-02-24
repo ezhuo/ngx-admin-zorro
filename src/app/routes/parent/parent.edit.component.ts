@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Inject, Injector, Optional } from '@angular/core';
-import { BaseComponent } from 'app/theme/parent/base.component';
+import { BaseComponent } from '@theme/parent/base.component';
 import { NzModalSubject } from 'ng-zorro-antd';
 
 @Component({

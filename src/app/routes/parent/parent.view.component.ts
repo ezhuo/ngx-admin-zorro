@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy, Inject, Injector, Optional } from '@angular/core';
-import { BaseComponent } from 'app/theme/parent/base.component';
+import { BaseComponent } from '@theme/parent/base.component';
 
 @Component({
-  selector: 'app-parent-index-component',
+  selector: 'app-parent-view-component',
   template: ``,
   styles: [``]
 })
-export class ParentIndexComponent extends BaseComponent implements OnInit, OnDestroy {
+export class ParentViewComponent extends BaseComponent implements OnInit, OnDestroy {
 
   constructor(protected injector: Injector) {
     super(injector);

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '@shared/shared.module';
-import { RouteRoutingModule, routedComponents } from './pages-routing.module';
+import { RouteRoutingModule, routedComponents } from './routes-routing.module';
 
-import { LayoutModule } from 'app/theme/layout/default/layout.module';
+import { LayoutModule } from '@theme/layout/default/layout.module';
 
 
 @NgModule({
@@ -13,4 +13,4 @@ import { LayoutModule } from 'app/theme/layout/default/layout.module';
     ]
 })
 
-export class PagesModule { }
+export class RoutesModule { }

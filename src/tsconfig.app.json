@@ -6,13 +6,13 @@
     "module": "es2015",
     "types": [],
     "paths": {
-        "@shared": [ "app/shared" ],
         "@shared/*": [ "app/shared/*" ],
-        "@core": [ "app/core/" ],
         "@core/*": [ "app/core/*" ],
-        "@testing": [ "testing/" ],
+        "@helpers": [ "app/helpers/"],
+        "@helpers/*": [ "app/helpers/*"],
+        "@routes/*": [ "app/routes/*" ],
+        "@theme/*": [ "app/theme/*" ],
         "@testing/*": [ "testing/*" ],
-        "@env": [ "environments/" ],
         "@env/*": [ "environments/*" ],
         "@delon/*": [ "./delon/*" ]
     }
