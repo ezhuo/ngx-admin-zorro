@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="top">
+        <div class="head">
+            <a [routerLink]="['/']">
+                <img class="logo" src="./assets/img/1.png">
+                <span class="title" [innerHTML]='stateService.config.app.name'>ng-alain</span>
+            </a>
+        </div>
+        <p class="desc">最牛逼的是，要成为你自己</p>
+    </div>
+    <router-outlet></router-outlet>
+    <global-footer [links]="links">
+        <ng-template #copyright>
+            Copyright
+            <nz-icon nzType="copyright"></nz-icon>
+            {{ settings.app.year }} - {{ settings.app.name }}
+            <br> {{ settings.app.description }}
+        </ng-template>
+    </global-footer>
+</div>
