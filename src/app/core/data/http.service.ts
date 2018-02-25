@@ -262,11 +262,11 @@ export class HttpService {
         return this.http
             .jsonp(this.appliedUrl(url, params), callbackParam)
             .pipe(
-            tap(() => this.end()),
-            catchError((res) => {
-                this.end();
-                return res;
-            })
+                tap(() => this.end()),
+                catchError((res) => {
+                    this.end();
+                    return res;
+                })
             );
     }
 

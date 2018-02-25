@@ -1,5 +1,16 @@
+<% delonMock ? '' : '' %>/**
+ * 进一步对基础模块的导入提炼
+ * 有关模块注册指导原则请参考：https://github.com/cipchk/ng-alain/issues/180
+ */
 import { NgModule, Optional, SkipSelf, ModuleWithProviders } from '@angular/core';
 import { throwIfAlreadyLoaded } from '@core/module-import-guard';
+<% if (delonMock) { %>
+// mock
+import { DelonMockModule } from '@delon/mock';
+import * as MOCKDATA from '../../_mock';
+import { environment } from '@env/environment';
+const MOCKMODULE = !environment.production || environment.chore === true ?
+                    [ DelonMockModule.forRoot({ data: MOCKDATA }) ] : [];<% } %>
 
 // region: zorro modules
 
@@ -9,7 +20,7 @@ import {
     NzButtonModule,
     NzAlertModule,
     NzBadgeModule,
-    NzCalendarModule,
+    // NzCalendarModule,
     NzCascaderModule,
     NzCheckboxModule,
     NzDatePickerModule,
@@ -50,20 +61,18 @@ import {
     // NzAffixModule,
     // NzAnchorModule,
     NzAvatarModule,
-    NzTransferModule,
     NzUploadModule,
     // SERVICES
     NzNotificationService,
     NzMessageService
 } from 'ng-zorro-antd';
-
 export const ZORROMODULES = [
     // LoggerModule,
     // NzLocaleModule,
     NzButtonModule,
     NzAlertModule,
     NzBadgeModule,
-    NzCalendarModule,
+    // NzCalendarModule,
     NzCascaderModule,
     NzCheckboxModule,
     NzDatePickerModule,
@@ -104,16 +113,14 @@ export const ZORROMODULES = [
     // NzAffixModule,
     // NzAnchorModule,
     NzAvatarModule,
-    NzTransferModule,
-    NzUploadModule,
+    NzUploadModule
 ];
-
 // endregion
 
 // region: @delon/abc modules
 import {
-    // AdSimpleTableModule,
-    AdReuseTabModule,
+    AdSimpleTableModule,
+    // AdReuseTabModule,
     AdAvatarListModule,
     AdChartsModule,
     AdCountDownModule,
@@ -138,10 +145,9 @@ import {
     AdXlsxModule,
     AdZipModule
 } from '@delon/abc';
-
 export const ABCMODULES = [
-    // AdSimpleTableModule,
-    AdReuseTabModule,
+    AdSimpleTableModule,
+    // AdReuseTabModule,
     AdAvatarListModule,
     AdChartsModule,
     AdCountDownModule,
@@ -169,51 +175,60 @@ export const ABCMODULES = [
 // endregion
 
 import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { NgZorroAntdExtraModule } from 'ng-zorro-antd-extra';
 import { AlainThemeModule } from '@delon/theme';
+import { AlainABCModule } from '@delon/abc';
+import { AlainAuthModule } from '@delon/auth';
+import { AlainACLModule } from '@delon/acl';
 import { DelonCacheModule } from '@delon/cache';
-
-// mock
-import { DelonMockModule } from '@delon/mock';
-import * as MOCKDATA from '../../../_mock';
-import { environment } from '@env/environment';
-const MOCKMODULE = !environment.production || environment.chore === true ?
-    [DelonMockModule.forRoot({ data: MOCKDATA })] : [];
 
 // region: global config functions
 
-// endregion
+// import { SimpleTableConfig } from '@delon/abc';
+// export function simpleTableConfig(): SimpleTableConfig {
+//     return { ps: 20 };
+// }
 
-const providers = [];
+// endregion
 
 @NgModule({
     imports: [
-        NgZorroAntdModule.forRoot({ extraFontName: 'anticon', extraFontUrl: './assets/fonts/iconfont' }),
+        NgZorroAntdModule.forRoot(),
+        NgZorroAntdExtraModule.forRoot(),
         // theme
         AlainThemeModule.forRoot(),
         // abc
         AdErrorCollectModule.forRoot(), AdFooterToolbarModule.forRoot(), AdSidebarNavModule.forRoot(), AdDownFileModule.forRoot(), AdImageModule.forRoot(),
         AdAvatarListModule.forRoot(), AdDescListModule.forRoot(), AdEllipsisModule.forRoot(), AdExceptionModule.forRoot(), AdExceptionModule.forRoot(),
         AdNoticeIconModule.forRoot(), AdNumberInfoModule.forRoot(), AdProHeaderModule.forRoot(), AdResultModule.forRoot(), AdStandardFormRowModule.forRoot(),
-        AdTagSelectModule.forRoot(), AdTrendModule.forRoot(), AdUtilsModule.forRoot(),
-        AdChartsModule.forRoot(),
-        AdCountDownModule.forRoot(),
-        // AdSimpleTableModule.forRoot(),
-        AdReuseTabModule.forRoot(), AdFullContentModule.forRoot(), AdXlsxModule.forRoot(), AdZipModule.forRoot(),
+        AdTagSelectModule.forRoot(), AdTrendModule.forRoot(), AdUtilsModule.forRoot(), AdChartsModule.forRoot(), AdCountDownModule.forRoot(), AdSimpleTableModule.forRoot(),
+        // AdReuseTabModule.forRoot(),
+        AdFullContentModule.forRoot(), AdXlsxModule.forRoot(), AdZipModule.forRoot(),
+        // auth
+        AlainAuthModule.forRoot({
+            // ignores: [ `\\/login`, `assets\\/` ],
+            login_url: `/passport/login`
+        }),
+        // acl
+        AlainACLModule.forRoot(),
         // cache
-        DelonCacheModule.forRoot(),
+        DelonCacheModule.forRoot()<% if (delonMock) { %>,
         // mock
-        ...MOCKMODULE
+        ...MOCKMODULE <% } %>
     ]
 })
-export class UIModule {
-    constructor(@Optional() @SkipSelf() parentModule: UIModule) {
-        throwIfAlreadyLoaded(parentModule, 'UIModule');
-    }
+export class DelonModule {
+  constructor( @Optional() @SkipSelf() parentModule: DelonModule) {
+    throwIfAlreadyLoaded(parentModule, 'DelonModule');
+  }
 
-    static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: UIModule,
-            providers: [...providers]
-        };
-    }
+  static forRoot(): ModuleWithProviders {
+      return {
+          ngModule: DelonModule,
+          providers: [
+              // TIPS：@delon/abc 有大量的全局配置信息，例如设置所有 `simple-table` 的页码默认为 `20` 行
+              // { provide: SimpleTableConfig, useFactory: simpleTableConfig }
+          ]
+      };
+  }
 }
