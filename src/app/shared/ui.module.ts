@@ -112,7 +112,7 @@ export const ZORROMODULES = [
 
 // region: @delon/abc modules
 import {
-    // AdSimpleTableModule,
+    AdSimpleTableModule,
     AdReuseTabModule,
     AdAvatarListModule,
     AdChartsModule,
@@ -140,7 +140,7 @@ import {
 } from '@delon/abc';
 
 export const ABCMODULES = [
-    // AdSimpleTableModule,
+    AdSimpleTableModule,
     AdReuseTabModule,
     AdAvatarListModule,
     AdChartsModule,
@@ -195,9 +195,7 @@ const providers = [];
         AdAvatarListModule.forRoot(), AdDescListModule.forRoot(), AdEllipsisModule.forRoot(), AdExceptionModule.forRoot(), AdExceptionModule.forRoot(),
         AdNoticeIconModule.forRoot(), AdNumberInfoModule.forRoot(), AdProHeaderModule.forRoot(), AdResultModule.forRoot(), AdStandardFormRowModule.forRoot(),
         AdTagSelectModule.forRoot(), AdTrendModule.forRoot(), AdUtilsModule.forRoot(),
-        AdChartsModule.forRoot(),
-        AdCountDownModule.forRoot(),
-        // AdSimpleTableModule.forRoot(),
+        AdChartsModule.forRoot(), AdCountDownModule.forRoot(), AdSimpleTableModule.forRoot(),
         AdReuseTabModule.forRoot(), AdFullContentModule.forRoot(), AdXlsxModule.forRoot(), AdZipModule.forRoot(),
         // cache
         DelonCacheModule.forRoot(),

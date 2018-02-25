@@ -6,5 +6,5 @@
         <button nz-button (click)="st.export()" [nzSize]="'small'" class="mr-sm">Export</button>
         <button nz-button (click)="st.export('https://randomuser.me/api/?results=100', { filename: 'all.xlsx' })" [nzSize]="'small'">Export All Page</button>
     </ng-template>
-    <!-- <simple-table #st [url]="url" [extraParams]="params" [total]="total" [columns]="columns" [resReName]="{list: 'results' }"></simple-table> -->
+    <simple-table #st [url]="url" [extraParams]="params" [total]="total" [columns]="columns" [resReName]="{list: 'results' }"></simple-table>
 </nz-card>

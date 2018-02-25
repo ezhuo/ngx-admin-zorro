@@ -17,7 +17,7 @@
         </desc-list>
         <nz-divider class="mb-lg"></nz-divider>
         <div class="text-lg mb-md">退货商品</div>
-        <!-- <simple-table [data]="goods" [columns]="goodsColumns">
+        <simple-table [data]="goods" [columns]="goodsColumns">
             <ng-template #body>
                 <tr nz-tbody-tr>
                     <td nz-td>合计</td>
@@ -28,13 +28,13 @@
                     <td nz-td class="text-right"><strong>{{amountNum}}</strong></td>
                 </tr>
             </ng-template>
-        </simple-table> -->
+        </simple-table>
         <div class="text-lg my-md">退货进度</div>
-        <!-- <simple-table [data]="progress" [columns]="progressColumns">
+        <simple-table [data]="progress" [columns]="progressColumns">
             <ng-template st-row="status" let-i>
                 <nz-badge *ngIf="i.status === 'success'" [nzStatus]="'success'" [nzText]="'成功'"></nz-badge>
                 <nz-badge *ngIf="i.status !== 'success'" [nzStatus]="'processing'" [nzText]="'进行中'"></nz-badge>
             </ng-template>
-        </simple-table> -->
+        </simple-table>
     </ng-template>
 </nz-card>
