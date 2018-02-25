@@ -5,6 +5,7 @@ import 'rxjs/add/observable/of';
 import * as helper from '../../helpers';
 import { User } from '@delon/theme';
 import { define } from '@core/public/config';
+import { SettingsService } from '@delon/theme';
 
 @Injectable()
 export class UserService {
@@ -12,8 +13,7 @@ export class UserService {
   private __userInfo: any = {};
   private __user: User = {};
 
-  constructor(
-  ) { }
+  constructor(private settingsService: SettingsService) { }
 
   getUser(): Observable<any> {
     return Observable.of(this.__userInfo);
@@ -33,7 +33,10 @@ export class UserService {
       this.__user.avatar = this.__userInfo.avatar;
       this.__user.email = this.__userInfo.email || '';
       this.__user.key = this.__userInfo.id;
+      // 用户信息：包括姓名、头像、邮箱地址
+      this.settingsService.setUser(this.__user);
     }
+    console.log(this.__userInfo);
   }
 
   get userInfo() {

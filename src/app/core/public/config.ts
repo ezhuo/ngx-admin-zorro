@@ -1,4 +1,4 @@
-import { App } from '@delon/theme';
+import { App, Menu } from '@delon/theme';
 
 export const app: App = {
   key: 'zs',
@@ -47,6 +47,22 @@ export const router = {
   login: '/passport/login',
   lock: '/passport/lock'
 };
+
+export const menus: Menu[] = [{
+  'text': '用户登录',
+  'hide': true,
+  'reuse': false,
+  'children': [{
+    'text': '安全登录',
+    'link': '/passport/login',
+    'reuse': false
+  },
+  {
+    'text': '安全锁定',
+    'link': '/passport/lock',
+    'reuse': false
+  }]
+}];
 
 /**
  *HTTP配置

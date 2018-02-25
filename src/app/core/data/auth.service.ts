@@ -1,22 +1,21 @@
-import { Storage } from './../public/storage';
-import { NoticeService } from '../utils/notice.service';
+import { NoticeService } from '@core/utils/notice.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/finally';
-
+import { catchError } from 'rxjs/operators';
 import { HttpService } from './http.service';
 import { TokenService } from './token.service';
+import { StateService } from './state.service';
 
 @Injectable()
 export class AuthService {
-  protected __local = Storage.local();
-  protected __session = Storage.session();
 
   constructor(
     private noticeService: NoticeService,
     private http: HttpService,
-    protected tokenService: TokenService
+    protected tokenService: TokenService,
+    protected stateService: StateService
   ) { }
 
   /**
@@ -37,31 +36,49 @@ export class AuthService {
         }, 0);
       })
       .subscribe(
-      (data: any) => {
-        // 登录成功
-        if (this.tokenService.token_write(data.data.token)) {
-          this.loginSuccess(data);
-          login$.next(data);
-        } else {
-          login$.error({
-            error: {
-              message: '数据包不完整，请留意网络安全！'
-            }
-          });
+        (data: any) => {
+          // 登录成功
+          if (this.tokenService.token_write(data.data.token)) {
+            this.loginSuccess(data);
+            login$.next(data);
+          } else {
+            login$.error({
+              error: {
+                message: '数据包不完整，请留意网络安全！'
+              }
+            });
+          }
+        },
+        error => {
+          // 登录失败
+          login$.error(error);
         }
-      },
-      error => {
-        // 登录失败
-        login$.error(error);
-      }
       );
 
     return login$;
   }
 
+  /**
+   * 登录成功
+   */
   loginSuccess(data: any) {
+    console.log('loginSuccess');
+    const self = this;
     if (data && data.data && data.data.menu_list)
-      this.__local.set('menu', data.data.menu_list);
+      this.tokenService.menu_reload(data.data.menu_list);
+
+    this.http.get(`./assets/app-data.json`).pipe(
+      // 接收其他拦截器后产生的异常消息
+      catchError((appData) => {
+        return appData;
+      })
+    ).subscribe(
+      (appData: any) => {
+        this.tokenService.menu_reload(appData.menu);
+      },
+      (err) => { },
+      () => { }
+    );
   }
 
   /**

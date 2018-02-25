@@ -31,31 +31,29 @@ export class StartupService {
         // https://github.com/angular/angular/issues/15088
         return new Promise((resolve, reject) => {
 
-            this.httpClient.get(`assets/app-data.json`).pipe(
+            this.httpClient.get(`assets/app.json`).pipe(
                 // 接收其他拦截器后产生的异常消息
                 catchError((appData) => {
                     resolve(null);
                     return appData;
                 })
-            ).subscribe(next, error, complete);
+            ).subscribe(app, error, complete);
 
-            function next(appData) {
+            function app(appData: any = {}) {
                 // application data
-                const res: any = appData;
+                const res: any = appData.app || self.stateService.config.app;
                 // 应用信息：包括站点名、描述、年份
-                self.settingService.setApp(self.stateService.config.app);
-
-                // 用户信息：包括姓名、头像、邮箱地址
-                self.settingService.setUser(self.stateService.user.user);
+                self.settingService.setApp(res);
+                // 设置页面标题的后缀
+                self.titleService.suffix = res.name;
 
                 // 初始化菜单
-                self.menuService.add(res.menu);
-                // 设置页面标题的后缀
-                self.titleService.suffix = self.stateService.config.app.name;
+                self.menuService.clear();
+                self.menuService.add(self.stateService.config.menus);
             }
 
-            function error() {
-
+            function error(err) {
+                return app();
             }
 
             function complete() {

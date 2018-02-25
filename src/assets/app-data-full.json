@@ -1,0 +1,455 @@
+{
+    "app": {
+        "name": "Alain",
+        "description": "Ng-zorro admin panel front-end framework"
+    },
+    "menu": [{
+        "text": "主导航",
+        "group": true,
+        "children": [{
+            "text": "仪表盘",
+            "link": "/app/dashboard",
+            "icon": "icon-speedometer",
+            "children": [{
+                "text": "仪表盘V1",
+                "link": "/app/dashboard/v1"
+            }, {
+                "text": "分析页",
+                "link": "/app/dashboard/analysis",
+                "translate2": "dashboard_analysis"
+            }, {
+                "text": "Monitor",
+                "link": "/app/dashboard/monitor",
+                "translate2": "dashboard_monitor"
+            }, {
+                "text": "Workplace",
+                "link": "/app/dashboard/workplace",
+                "translate2": "dashboard_workplace"
+            }]
+        }, {
+            "text": "快捷菜单",
+            "translate2": "shortcut",
+            "icon": "icon-rocket",
+            "shortcut_root": true,
+            "children": []
+        }, {
+            "text": "小部件",
+            "translate2": "widgets",
+            "link": "/app/widgets",
+            "icon": "icon-grid",
+            "badge": 2
+        }]
+    }, {
+        "text": "组件",
+        "translate2": "component",
+        "group": true,
+        "children": [{
+            "text": "基础元素",
+            "translate2": "elements",
+            "link": "/app/elements",
+            "icon": "icon-chemistry",
+            "acl": "user1",
+            "children": [{
+                "text": "按钮",
+                "link": "/app/elements/buttons",
+                "translate2": "buttons",
+                "shortcut": true
+            }, {
+                "text": "Notification",
+                "link": "/app/elements/notification",
+                "translate2": "notification",
+                "shortcut": true
+            }, {
+                "text": "Modal",
+                "link": "/app/elements/modal",
+                "translate2": "modal"
+            }, {
+                "text": "SweetAlert",
+                "link": "/app/elements/sweetalert",
+                "translate2": "sweetalert"
+            }, {
+                "text": "Tree Antd",
+                "link": "/app/elements/tree-antd",
+                "translate2": "tree-antd"
+            }, {
+                "text": "Sortable",
+                "link": "/app/elements/sortable",
+                "translate2": "sortable"
+            }, {
+                "text": "Spin",
+                "link": "/app/elements/spin",
+                "translate2": "spin"
+            }, {
+                "text": "Dropdown",
+                "link": "/app/elements/dropdown",
+                "translate2": "dropdown"
+            }, {
+                "text": "Grid",
+                "link": "/app/elements/grid",
+                "translate2": "grid"
+            }, {
+                "text": "Grid Masonry",
+                "link": "/app/elements/gridmasonry",
+                "translate2": "gridmasonry"
+            }, {
+                "text": "Typography",
+                "link": "/app/elements/typography",
+                "translate2": "typography"
+            }, {
+                "text": "Font Icons",
+                "link": "/app/elements/iconsfont",
+                "translate2": "iconsfont"
+            }, {
+                "text": "Colors",
+                "link": "/app/elements/colors",
+                "translate2": "colors"
+            }]
+        }, {
+            "text": "Other",
+            "translate2": "other",
+            "link": "/app/other",
+            "icon": "icon-magic-wand",
+            "children": [{
+                "text": "Split",
+                "link": "/app/other/split",
+                "translate2": "split"
+            }, {
+                "text": "Clipboard",
+                "link": "/app/other/clipboard",
+                "translate2": "clipboard"
+            }]
+        }, {
+            "text": "表单",
+            "translate2": "forms",
+            "link": "/app/forms",
+            "icon": "icon-note",
+            "acl": "user1",
+            "children": [{
+                "text": "标准",
+                "link": "/app/forms/standard",
+                "translate2": "standard"
+            }, {
+                "text": "扩展",
+                "link": "/app/forms/extended",
+                "translate2": "extended"
+            }, {
+                "text": "校验",
+                "link": "/app/forms/validation",
+                "translate2": "validation"
+            }, {
+                "text": "上传",
+                "link": "/app/forms/upload",
+                "translate2": "upload",
+                "shortcut": true
+            }, {
+                "text": "图片裁剪",
+                "link": "/app/forms/cropper",
+                "translate2": "cropper"
+            }]
+        }, {
+            "text": "编辑器",
+            "translate2": "editor",
+            "link": "/app/editor",
+            "icon": "icon-pencil",
+            "children": [{
+                "text": "UEditor",
+                "link": "/app/editor/ueditor"
+            }, {
+                "text": "Tinymce",
+                "link": "/app/editor/tinymce"
+            }]
+        }, {
+            "text": "Charts",
+            "translate2": "charts",
+            "link": "/app/charts",
+            "icon": "icon-graph",
+            "acl": "user1",
+            "children": [{
+                "text": "G2",
+                "link": "/app/charts/g2"
+            }]
+        }, {
+            "text": "表格",
+            "translate2": "tables",
+            "link": "/tables",
+            "icon": "icon-grid",
+            "acl": "user2",
+            "children": [{
+                "text": "标准",
+                "link": "/app/tables/standard",
+                "translate2": "standard"
+            }, {
+                "text": "Full",
+                "link": "/app/tables/full",
+                "translate2": "full"
+            }, {
+                "text": "Simple Table",
+                "link": "/app/tables/simple-table"
+            }, {
+                "text": "Fullscreen Table",
+                "link": "/app/tables/fs-table",
+                "translate2": "fs-table"
+            }]
+        }, {
+            "text": "地图",
+            "translate2": "maps",
+            "link": "/maps",
+            "icon": "icon-map",
+            "acl": "user2",
+            "children": [{
+                "text": "QQ",
+                "link": "/app/maps/qq",
+                "translate2": "qq"
+            }, {
+                "text": "Baidu",
+                "link": "/app/maps/baidu",
+                "translate2": "baidu"
+            }]
+        }]
+    }, {
+        "text": "Pro",
+        "translate2": "pro",
+        "group": true,
+        "children": [{
+            "text": "Form Page",
+            "translate2": "form",
+            "link": "/pro/form",
+            "icon": "icon-note",
+            "children": [{
+                "text": "Step Form",
+                "link": "/app/pro/form/step-form",
+                "translate2": "step-form"
+            }, {
+                "text": "Advanced Form",
+                "link": "/app/pro/form/advanced-form",
+                "translate2": "advanced-form"
+            }]
+        }, {
+            "text": "List",
+            "translate2": "pro-list",
+            "link": "/app/pro/list",
+            "icon": "icon-grid",
+            "children": [{
+                "text": "Table List",
+                "link": "/app/pro/list/table-list",
+                "translate2": "pro-table-list"
+            }, {
+                "text": "Basic List",
+                "link": "/app/pro/list/basic-list",
+                "translate2": "pro-basic-list"
+            }, {
+                "text": "Card List",
+                "link": "/app/pro/list/card-list",
+                "translate2": "pro-card-list"
+            }, {
+                "text": "Cover Card List",
+                "link": "/app/pro/list/cover-card-list",
+                "translate2": "pro-cover-card-list"
+            }, {
+                "text": "Filter Card List",
+                "link": "/app/pro/list/filter-card-list",
+                "translate2": "pro-filter-card-list"
+            }, {
+                "text": "Search",
+                "link": "/app/pro/list/search",
+                "translate2": "pro-search"
+            }]
+        }, {
+            "text": "Profile",
+            "translate2": "pro-profile",
+            "link": "/app/pro/profile",
+            "icon": "icon-book-open",
+            "children": [{
+                "text": "Basic",
+                "link": "/app/pro/profile/basic",
+                "translate2": "pro-profile-basic"
+            }, {
+                "text": "Advanced",
+                "link": "/app/pro/profile/advanced",
+                "translate2": "pro-profile-advanced"
+            }]
+        }, {
+            "text": "Result",
+            "translate2": "pro-result",
+            "link": "/app/pro/result",
+            "icon": "icon-check",
+            "children": [{
+                "text": "Success",
+                "link": "/app/pro/result/success",
+                "translate2": "pro-result-success"
+            }, {
+                "text": "Fail",
+                "link": "/app/pro/result/fail",
+                "translate2": "pro-result-fail"
+            }]
+        }, {
+            "text": "Exception",
+            "translate2": "pro-exception",
+            "link": "/exception",
+            "icon": "icon-fire",
+            "children": [{
+                "text": "403",
+                "link": "/exception/403",
+                "reuse": false
+            }, {
+                "text": "404",
+                "link": "/exception/404",
+                "reuse": false
+            }, {
+                "text": "500",
+                "link": "/exception/500",
+                "reuse": false
+            }]
+        }, {
+            "text": "User",
+            "translate2": "pro-user",
+            "link": "/passport",
+            "icon": "icon-user",
+            "children": [{
+                "text": "login",
+                "link": "/passport/login",
+                "translate2": "pro-login",
+                "reuse": false
+            }, {
+                "text": "register",
+                "link": "/passport/register",
+                "translate2": "pro-register",
+                "reuse": false
+            }, {
+                "text": "register result",
+                "link": "/passport/register-result",
+                "translate2": "pro-register-result",
+                "reuse": false
+            }]
+        }]
+    }, {
+        "text": "More",
+        "translate2": "more",
+        "group": true,
+        "children": [{
+            "text": "Common Logics",
+            "translate2": "logics",
+            "link": "/app/logics",
+            "icon": "icon-compass",
+            "children": [
+                {
+                    "text": "Route Guard",
+                    "link": "/app/logics/guard",
+                    "translate2": "guard"
+                },
+                {
+                    "text": "Cache",
+                    "link": "/app/logics/cache",
+                    "translate2": "cache"
+                },
+                {
+                    "text": "Down File",
+                    "link": "/app/logics/downfile",
+                    "translate2": "downfile",
+                    "shortcut": true
+                },
+                {
+                    "text": "Xlsx",
+                    "link": "/app/logics/xlsx"
+                },
+                {
+                    "text": "Zip",
+                    "link": "/app/logics/zip"
+                }
+            ]
+        }, {
+            "text": "Report",
+            "translate2": "report",
+            "icon": "anticon anticon-cloud-o",
+            "children": [{
+                "text": "Relation",
+                "link": "/data-v/relation",
+                "translate2": "relation",
+                "shortcut": true,
+                "reuse": false
+            }]
+        }, {
+            "text": "Pages",
+            "translate2": "pages",
+            "link": "/app/pages",
+            "icon": "icon-doc",
+            "acl": "admin",
+            "children": [{
+                "text": "Login",
+                "link": "/app/pages/login",
+                "translate2": "m-login",
+                "reuse": false
+            }, {
+                "text": "Register",
+                "link": "/app/pages/register",
+                "translate2": "m-register",
+                "reuse": false
+            }, {
+                "text": "Forget",
+                "link": "/app/pages/forget",
+                "translate2": "m-forget",
+                "reuse": false
+            }, {
+                "text": "Lock",
+                "link": "/app/pages/lock",
+                "translate2": "m-lock",
+                "reuse": false
+            }, {
+                "text": "404",
+                "link": "/app/pages/404",
+                "reuse": false
+            }, {
+                "text": "500",
+                "link": "/app/pages/500",
+                "reuse": false
+            }, {
+                "text": "Maintenance",
+                "link": "/app/pages/maintenance",
+                "translate2": "maintenance",
+                "reuse": false
+            }]
+        }, {
+            "text": "Extras",
+            "translate2": "extras",
+            "link": "/app/extras",
+            "icon": "icon-cup",
+            "children": [{
+                "text": "Blog",
+                "link": "/app/extras/blog",
+                "translate2": "blog",
+                "children": [{
+                    "text": "List",
+                    "link": "/app/extras/blog/list",
+                    "translate2": "list",
+                    "badge": 1,
+                    "badge_dot": true
+                }, {
+                    "text": "Comment",
+                    "link": "/app/extras/blog/comment",
+                    "translate2": "comment"
+                }, {
+                    "text": "Post",
+                    "link": "/app/extras/blog/post",
+                    "translate2": "post"
+                }, {
+                    "text": "WebSite",
+                    "externalLink": "//github.com/cipchk/ng-alain",
+                    "target": "_blank",
+                    "translate2": "website"
+                }]
+            }, {
+                "text": "Help Center",
+                "link": "/app/extras/helpcenter",
+                "translate2": "helpcenter"
+            }, {
+                "text": "Settings",
+                "link": "/app/extras/settings",
+                "translate2": "settings"
+            }, {
+                "text": "Poi",
+                "link": "/app/extras/poi",
+                "translate2": "poi"
+            }]
+        }]
+    }]
+}

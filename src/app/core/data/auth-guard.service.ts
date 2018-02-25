@@ -38,7 +38,6 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   }
 
   private checkLogin(route: any): boolean {
-    console.log('checkLogin');
     const bool = this.authService.checkAuth();
     if (!bool) {
       this.router.navigate([this.stateService.config.router.login]);

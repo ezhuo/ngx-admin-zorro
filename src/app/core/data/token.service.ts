@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { NoticeService } from '../utils/notice.service';
-import { http } from './../public/config';
+import { http, menus } from '@core/public/config';
 import { Storage } from '../public/storage';
 import { JwtHelper } from 'angular2-jwt';
 import { UserService } from './users.service';
-import * as helper from '../../helpers';
+import * as helper from '@helpers';
+import { MenuService, SettingsService, Menu } from '@delon/theme';
 
 @Injectable()
 export class TokenService {
@@ -14,10 +15,13 @@ export class TokenService {
   protected __local = Storage.local();
   protected __session = Storage.session();
   protected jwtHelper: JwtHelper = new JwtHelper();
+  protected __menu: Menu[];
 
   constructor(
     private noticeService: NoticeService,
-    private userService: UserService
+    private userService: UserService,
+    private menuService: MenuService,
+    private settingsService: SettingsService
   ) { }
 
   /**
@@ -70,6 +74,8 @@ export class TokenService {
     this.userService.userInfo = null;
     this.__session.clear();
     this.__local.clear();
+    this.menuService.clear();
+    this.app_menu = menus;
     return true;
   }
 
@@ -77,6 +83,11 @@ export class TokenService {
     this.__isAuth =
       (this.token_read() || '').length > 10 &&
       !helper.IsEmpty(this.userService.userInfo);
+
+    if (this.__isAuth) {
+      console.log('isAuth');
+      this.menu_reload(); // 加载菜单
+    }
 
     return this.__isAuth;
   }
@@ -107,4 +118,28 @@ export class TokenService {
       .set('validate', validate);
   }
 
+  set app_menu(_menu: Menu[]) {
+    this.__menu = _menu;
+    this.menuService.add(_menu);
+  }
+
+  get app_menu() {
+    return this.__menu;
+  }
+
+  menu_reload(__menus = null) {
+    let tmp = null;
+    if (__menus) {
+      tmp = __menus;
+      this.__local.set('menu', __menus);
+    } else {
+      tmp = this.__local.get('menu');
+    }
+    if (tmp && helper.isString(tmp)) {
+      tmp = JSON.parse(tmp);
+    }
+    if (tmp) {
+      this.app_menu = tmp;
+    }
+  }
 }
