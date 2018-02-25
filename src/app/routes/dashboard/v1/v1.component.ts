@@ -26,7 +26,6 @@ export class DashboardV1Component implements OnInit {
     offlineChartData: any[] = [];
 
     ngOnInit() {
-        
         this.http.get('/chart').subscribe((res: any) => {
             this.webSite = res.visitData.slice(0, 10);
             this.salesData = res.salesData;
