@@ -13,9 +13,11 @@ export class ParentIndexComponent extends BaseComponent implements OnInit, OnDes
   }
 
   ngOnInit() {
+    console.log('parent-nginit');
   }
 
   ngOnDestroy() {
+    console.log('parent-ngOnDestroy');
   }
 
 }

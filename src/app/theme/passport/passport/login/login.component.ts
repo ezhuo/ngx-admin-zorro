@@ -14,7 +14,7 @@ import { ReuseTabService } from '@delon/abc';
     styleUrls: ['./login.component.less'],
     providers: []
 })
-export class UserLoginComponent implements OnDestroy {
+export class UserLoginComponent implements OnInit, OnDestroy {
 
     form: FormGroup;
     error = '';
@@ -39,6 +39,9 @@ export class UserLoginComponent implements OnDestroy {
             remember: [true]
         });
         this.reuseTabService.clear();
+    }
+
+    ngOnInit() {
     }
 
     // region: fields
@@ -91,17 +94,17 @@ export class UserLoginComponent implements OnDestroy {
                     this.loading = false;
                 })
                 .subscribe(
-                data => {
-                    this.error = '';
-                    this.noticeService.notice_success('登录成功！');
-                    setTimeout(() => {
-                        console.log('login....');
-                        return this.goHome();
-                    }, 0);
-                },
-                error => {
-                    return this.error = `账户或密码错误`;
-                }
+                    data => {
+                        this.error = '';
+                        this.noticeService.notice_success('登录成功！');
+                        setTimeout(() => {
+                            console.log('login....');
+                            return this.goHome();
+                        }, 0);
+                    },
+                    error => {
+                        return this.error = `账户或密码错误`;
+                    }
                 );
         }
 

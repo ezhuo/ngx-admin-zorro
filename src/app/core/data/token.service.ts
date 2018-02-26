@@ -120,7 +120,9 @@ export class TokenService {
 
   set app_menu(_menu: Menu[]) {
     this.__menu = _menu;
+    this.menuService.clear();
     this.menuService.add(_menu);
+    this.menuService.resume();
   }
 
   get app_menu() {
@@ -131,7 +133,7 @@ export class TokenService {
     let tmp = null;
     if (__menus) {
       tmp = __menus;
-      this.__local.set('menu', __menus);
+      this.menu_cache(__menus);
     } else {
       tmp = this.__local.get('menu');
     }
@@ -139,7 +141,14 @@ export class TokenService {
       tmp = JSON.parse(tmp);
     }
     if (tmp) {
-      this.app_menu = tmp;
+      this.app_menu = [...menus, ...tmp];
     }
   }
+
+  menu_cache(__menus) {
+    if (__menus) {
+      this.__local.set('menu', __menus);
+    }
+  }
+
 }
