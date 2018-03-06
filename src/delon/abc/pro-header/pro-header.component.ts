@@ -8,7 +8,7 @@ import { ProHeaderConfig } from './pro-header.config';
     selector: 'pro-header',
     template: `
     <ng-container *ngIf="!breadcrumb; else breadcrumb">
-        <nz-breadcrumb>
+        <nz-breadcrumb *ngIf="paths && paths.length > 0">
             <nz-breadcrumb-item *ngFor="let i of paths">
                 <ng-container *ngIf="i.link"><a [routerLink]="i.link">{{i.title}}</a></ng-container>
                 <ng-container *ngIf="!i.link">{{i.title}}</ng-container>
@@ -78,6 +78,7 @@ export class ProHeaderComponent implements OnInit {
         if (menus.length <= 0) return ;
         const paths: any[] = [];
         menus.forEach(item => {
+            if (typeof item.hideInBreadcrumb !== 'undefined' && item.hideInBreadcrumb) return;
             let title;
             if (item.translate && this.i18nSrv) title = this.i18nSrv.fanyi(item.translate);
             paths.push({ title: title || item.text, link: item.link && [ item.link ] });

@@ -1,13 +1,11 @@
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { SettingsService } from '../settings/settings.service';
-
-export type ThemeType = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J';
+import { ThemeType } from './interface';
 
 @Injectable()
 export class ThemesService {
 
-    styleTag: any;
     defaultTheme: ThemeType = 'A';
 
     constructor(private settings: SettingsService, @Inject(DOCUMENT) private doc: any) {
@@ -25,7 +23,7 @@ export class ThemesService {
                 removeArr.push(bodyEl.classList[i]);
             }
         }
-        bodyEl.classList.remove(...removeArr);
+        if (removeArr.length) bodyEl.classList.remove(...removeArr);
         bodyEl.classList.add(`theme-${name.toLowerCase()}`);
         this.defaultTheme = name;
         this.settings.setLayout('theme', name);
