@@ -1,7 +1,7 @@
 import * as helper from '../../helpers';
 import { app } from './config';
 
-export class Storage {
+export default class Storage {
     private $cache = null;
 
     static local() {

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { NoticeService } from '../utils/notice.service';
 import { http, menus } from '@core/public/config';
-import { Storage } from '../public/storage';
+import Storage from '../public/storage';
 import { JwtHelper } from 'angular2-jwt';
 import { UserService } from './users.service';
 import * as helper from '@helpers';
